@@ -3,7 +3,7 @@
  */
 
 /**
- * Import matcher function
+ * Matcher function
  */
 import { MatcherFunction } from "./FinickyConfig";
 
