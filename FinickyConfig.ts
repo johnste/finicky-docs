@@ -24,7 +24,7 @@ export interface FinickyConfig {
   /** The default browser or app to open for urls where no other handler
    * matches.
    */
-  defaultBrowser: Browser | BrowserFunction;
+  defaultBrowser: Browser | BrowserFunction | Array<Browser | BrowserFunction>;
   options?: {
     /** Whether or not to hide the finicky icon in the menu bar */
     hideIcon?: boolean;
@@ -54,7 +54,7 @@ export interface FinickyConfig {
  */
 interface Handler {
   match: Matcher | Matcher[];
-  browser: Browser | BrowserFunction;
+  browser: Browser | BrowserFunction | Array<Browser | BrowserFunction>;
 }
 
 /**
@@ -129,4 +129,13 @@ interface Options {
   url: UrlObject;
   /** If opened in from an app, this string contains the bundle identifier from that app */
   sourceBundleIdentifier?: string;
+  /** The state of keyboard state. E.g. shift === true if pressed. */
+  keys: {
+    shift: boolean;
+    option: boolean;
+    command: boolean;
+    control: boolean;
+    capsLock: boolean;
+    function: boolean;
+  };
 }
